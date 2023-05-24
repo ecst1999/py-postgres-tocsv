@@ -10,13 +10,6 @@ conn = psycopg2.connect(
 #Creating a cursor object using the cursor() method
 cursor = conn.cursor()
 
-#Executing an MYSQL function using the execute() method
-cursor.execute("select version()")
-
-# # Fetch a single row using fetchone() method.
-# data = cursor.fetchone()
-# print("Connection established to: ",data)
-
 cursor.execute("SELECT * FROM sabana_datos")
 data = cursor.fetchall()
 cabecera = ['employee_id',
@@ -65,6 +58,7 @@ cabecera = ['employee_id',
 'milliseconds',
 'bytes',
 't_unit_price']
+
 dataf = pd.DataFrame(data)
 dataf.to_csv('sabana_datos.csv', header=cabecera)
 
