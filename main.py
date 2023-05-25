@@ -60,7 +60,7 @@ cabecera = ['employee_id',
 't_unit_price']
 
 dataf = pd.DataFrame(data)
-dataf.to_csv('sabana_datos.csv', header=cabecera)
+dataf.to_csv('sabana_datos.csv', header=cabecera, index=False)
 
 #Closing the connection
 conn.close()
